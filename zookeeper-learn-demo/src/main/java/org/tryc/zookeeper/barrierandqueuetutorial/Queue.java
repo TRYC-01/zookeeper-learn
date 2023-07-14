@@ -55,13 +55,13 @@ public class Queue extends SyncPrimitive {
                         if (tempValue < min) {
                             min = tempValue;
                         }
-                        System.out.println("Temporary value: " + "/element" + min);
-                        byte[] b = zk.getData(root + "/element" + min, false, stat);
-                        zk.delete(root + "/element" + min, 0);
-                        ByteBuffer buffer = ByteBuffer.wrap(b);
-                        retValue = buffer.getInt();
-                        return retValue;
                     }
+                    System.out.println("Temporary value: " + "/element" + String.format("%010d",min));
+                    byte[] b = zk.getData(root + "/element" + String.format("%010d",min), false, stat);
+                    zk.delete(root + "/element" + String.format("%010d",min), 0);
+                    ByteBuffer buffer = ByteBuffer.wrap(b);
+                    retValue = buffer.getInt();
+                    return retValue;
                 }
             }
         }

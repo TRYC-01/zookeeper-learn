@@ -83,7 +83,7 @@ public class SyncPrimitive implements Watcher {
     }
 
     /**
-     * qTest 192.168.183.139 20
+     * qTest 192.168.183.139 20 p(c)
      * @param args
      */
     private static void queueTest(String[] args) {
